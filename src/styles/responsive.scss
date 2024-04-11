@@ -1,0 +1,63 @@
+@use "./template-media-queries.scss" as *;
+
+// -----------------------
+// media queries = Min width 600px
+@include gt-xs {
+  // Navbar
+  .app-bar {
+    grid-template-columns: 1fr auto;
+    padding: 0 32px;
+    .app-bar__brand{
+      h1 {
+        font-size: 1.5em;
+      }
+    }
+    .app-bar__menu {
+      display: none;
+    }
+    .app-bar__navigation {
+      position: static;
+      width: 100%;
+      ul{
+        li {
+          display: inline-block;
+          a{
+            display: inline-block;
+            width: 120px;
+            text-align: center;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+  // Content
+  #container{
+    #restaurants {
+      @include gt-xs {
+        grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+        margin: 10px auto;
+      }
+    }
+  }
+}
+
+@include gt-sm{
+  .content__inner{
+    max-width: 1050px;
+    margin: 10px auto;
+  }
+}
+
+// -----------------------
+// media queries for HERO
+@include xs{
+hero-content, .hero {
+  min-height: 300px;
+  hero-content{
+      source, img {
+        min-height: 300px;
+      }
+    }
+  }
+}
